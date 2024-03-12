@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\youne\\OneDrive - CFAI ALSACE\\Diplôme ingénieur informatique - CNAM\\SEM4\\Tests et validation\\tv-projet-legacy\\MorpionApp.csproj",
+      "projectUniqueName": "C:\\Users\\youne\\OneDrive - CFAI ALSACE\\Diplôme ingénieur informatique - CNAM\\SEM4\\Tests et validation\\tps-tests-validation\\tp2\\MorpionApp.csproj",
       "projectName": "MorpionApp",
-      "projectPath": "C:\\Users\\youne\\OneDrive - CFAI ALSACE\\Diplôme ingénieur informatique - CNAM\\SEM4\\Tests et validation\\tv-projet-legacy\\MorpionApp.csproj",
+      "projectPath": "C:\\Users\\youne\\OneDrive - CFAI ALSACE\\Diplôme ingénieur informatique - CNAM\\SEM4\\Tests et validation\\tps-tests-validation\\tp2\\MorpionApp.csproj",
       "packagesPath": "C:\\Users\\youne\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\youne\\OneDrive - CFAI ALSACE\\Diplôme ingénieur informatique - CNAM\\SEM4\\Tests et validation\\tv-projet-legacy\\obj\\",
+      "outputPath": "C:\\Users\\youne\\OneDrive - CFAI ALSACE\\Diplôme ingénieur informatique - CNAM\\SEM4\\Tests et validation\\tps-tests-validation\\tp2\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\youne\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8/kyijmOjVMAW7UGi2wZIMJGMGNjiqOfZgjefqXbvjNVvETJA1YQ0T01FaLq7NNgXGRn58PnD+PunnAUXhbSIA==",
+  "dgSpecHash": "NZYRP/XAP89poJDHlwQ+I91avJ5djpaPINYs+Jt1TCounXhk0YJ5rQW7JYi18Vsl8kpgNNx3G6rOepe89QwnjA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\youne\\OneDrive - CFAI ALSACE\\Diplôme ingénieur informatique - CNAM\\SEM4\\Tests et validation\\tv-projet-legacy\\MorpionApp.csproj",
+  "projectFilePath": "C:\\Users\\youne\\OneDrive - CFAI ALSACE\\Diplôme ingénieur informatique - CNAM\\SEM4\\Tests et validation\\tps-tests-validation\\tp2\\MorpionApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\youne\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.27\\microsoft.windowsdesktop.app.ref.6.0.27.nupkg.sha512",
     "C:\\Users\\youne\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.27\\microsoft.netcore.app.ref.6.0.27.nupkg.sha512",

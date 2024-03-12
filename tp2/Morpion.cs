@@ -6,13 +6,8 @@ using System.Threading.Tasks;
 
 namespace MorpionApp
 {
-    public class Morpion
+    public class Morpion : Jeu
     {
-        public bool quitterJeu = false;
-        public bool tourEstJoue = false;
-        public bool tourDuJoueur = true;
-        public char[,] grille;
-
         public Morpion()
         {
             grille = new char[3, 3];
@@ -42,8 +37,9 @@ namespace MorpionApp
             Console.WriteLine($" {grille[2, 0]}  |  {grille[2, 1]}  |  {grille[2, 2]}");
         }
 
-        public void AfficherGagnant(int numeroJoueur)
+        public void AfficherGagnant()
         {
+            int numeroJoueur = tourDuJoueur ? 1 : 2;
             Console.WriteLine("Le joueur " + numeroJoueur.ToString() + " a gagné !");
         }
 
@@ -67,7 +63,7 @@ namespace MorpionApp
             Console.WriteLine("Appuyer sur [Echap] pour quitter, [Entrer] pour rejouer.");
         }
 
-        public void BoucleJeu()
+        public override void BoucleJeu()
         {
             while (!quitterJeu)
             {
@@ -75,23 +71,11 @@ namespace MorpionApp
 
                 while (!quitterJeu)
                 {
-                    if (tourDuJoueur)
+                    TourJoueur();
+                    if (VerifierVictoire())
                     {
-                        TourJoueur(1);
-                        if (VerifierVictoire('X'))
-                        {
-                            FinPartie(1);
-                            break;
-                        }
-                    }
-                    else
-                    {
-                        TourJoueur(2);
-                        if (VerifierVictoire('O'))
-                        {
-                            FinPartie(2);
-                            break;
-                        }
+                        FinPartie(true);
+                        break;
                     }
                     tourDuJoueur = !tourDuJoueur;
                     if (VerifierEgalite())
@@ -107,7 +91,7 @@ namespace MorpionApp
             }
         }
 
-        public void ChoixFinPartie()
+        public override void ChoixFinPartie()
         {
             AfficherMessageFinPartie();
             GetKey:
@@ -126,7 +110,7 @@ namespace MorpionApp
             }
         }   
 
-        public void TourJoueur(int numeroJoueur)
+        public override void TourJoueur()
         {
             var (row, column) = (0, 0);
             tourEstJoue = false;
@@ -150,7 +134,7 @@ namespace MorpionApp
                         (row, column) = DeplacerCurseur(row, column, key);
                         break;
                     case ConsoleKey.Enter:
-                        PlacerPion(numeroJoueur, row, column);
+                        PlacerPion(row, column);
                         break;
                     case ConsoleKey.Escape:
                         TerminerJeu();
@@ -162,7 +146,7 @@ namespace MorpionApp
             }
         }
 
-        public (int, int) DeplacerCurseur(int row, int column, System.ConsoleKey key)
+        public override (int, int) DeplacerCurseur(int row, int column, System.ConsoleKey key)
         {
             switch (key)
             {
@@ -211,42 +195,48 @@ namespace MorpionApp
             return (row, column);
         }
 
-        public void PlacerPion(int numeroJoueur, int row, int column)
+        public override char ObtenirPion()
+        {
+            return tourDuJoueur ? 'X' : 'O';
+        }
+
+        public override void PlacerPion(int row, int column)
         {
             if (grille[row, column] is ' ')
             {
-                grille[row, column] = numeroJoueur == 1 ? 'X' : 'O';
+                grille[row, column] = ObtenirPion();
                 tourEstJoue = true;
                 quitterJeu = false;
             }
         }
 
-        public bool VerifierVictoire(char c)
+        public override bool VerifierVictoire()
         {
+            char c = ObtenirPion();
             return VictoireParLigne(c) || VictoireParColonne(c) || VictoireParDiagonale(c);
         }
 
-        public bool VictoireParLigne(char c)
+        public override bool VictoireParLigne(char c)
         {
             return grille[0, 0] == c && grille[0, 1] == c && grille[0, 2] == c ||
                    grille[1, 0] == c && grille[1, 1] == c && grille[1, 2] == c ||
                    grille[2, 0] == c && grille[2, 1] == c && grille[2, 2] == c; 
         }
 
-        public bool VictoireParColonne(char c)
+        public override bool VictoireParColonne(char c)
         {
             return grille[0, 0] == c && grille[1, 0] == c && grille[2, 0] == c ||
                    grille[0, 1] == c && grille[1, 1] == c && grille[2, 1] == c ||
                    grille[0, 2] == c && grille[1, 2] == c && grille[2, 2] == c;
         }
 
-        public bool VictoireParDiagonale(char c)
+        public override bool VictoireParDiagonale(char c)
         {
             return grille[0, 0] == c && grille[1, 1] == c && grille[2, 2] == c ||
                    grille[2, 0] == c && grille[1, 1] == c && grille[0, 2] == c;
         }
 
-        public bool VerifierEgalite()
+        public override bool VerifierEgalite()
         {
             for (int i = 0; i < grille.GetLength(0); i++)
             {
@@ -262,17 +252,17 @@ namespace MorpionApp
             return true;
         }
 
-        public void FinPartie(int numeroJoueur = 0)
+        public override void FinPartie(bool jeuTermineParVictoire = false)
         {
             Console.Clear();
             AfficherPlateau();
-            if (numeroJoueur == 0)
-                AfficherEgalite();
+            if (jeuTermineParVictoire)
+                AfficherGagnant();
             else
-                AfficherGagnant(numeroJoueur);
+                AfficherEgalite();
         }
 
-        public void TerminerJeu()
+        public override void TerminerJeu()
         {
             quitterJeu = true;
             Console.Clear();

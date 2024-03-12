@@ -20,7 +20,7 @@ Concernant le design, le prestataire a scindé le logiciel en 3 fichiers :
 
 On observe aussi une violation du principe SOLID SP (Single Responsability) car les classes Morpion et PuissanceQuatre se retrouvent à faire l’initialisation des grilles, l’affichage, la gestion des tours, la logique de jeu, et ainsi de suite. Pour les méthodes, c’est la même histoire : la méthode BoucleJeu() gère à la fois les sorties console et la gestion des tours. Egalement, la méthode verifVictoire() n’est pas scindée en plusieurs petites méthodes qui traiteraient chacune d’un aspect de la vérification (vérification par ligne, par colonne et en diagonale). La méthode est donc très difficilement compréhensible.
 
-```
+```cs
 public bool verifVictoire(char c) =>
      grille[0, 0] == c && grille[1, 0] == c && grille[2, 0] == c && grille[3, 0] == c ||
      grille[0, 1] == c && grille[1, 1] == c && grille[2, 1] == c && grille[3, 1] == c ||
@@ -59,7 +59,7 @@ Un autre principe SOLID qui est violé est celui du Open/Closed. Le code prend a
 
 Enfin, le code est en « franglais », devant plutôt être monolingue pour une meilleure compréhension. De plus, il manque des commentaires pour expliquer le fonctionnement d’une méthode ou d’une condition particulière et il y a du « dead code » dans tourJoueur() et tourJoueur2(), code inutilisé et devant être supprimé.
 
-```
+```cs
 case ConsoleKey.LeftArrow:
     if (column <= 0)
     {
@@ -97,7 +97,7 @@ case ConsoleKey.LeftArrow:
 
 Autre point, une complexité cyclomatique élevée du programme à certains endroits du code avec de nombreuses conditions imbriquées.
 
-```
+```cs
 while (!quiterJeu)
 {
     grille = new char[4, 7]
