@@ -1,0 +1,53 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\youne\\OneDrive - CFAI ALSACE\\Dipl\u00F4me ing\u00E9nieur informatique - CNAM\\SEM4\\Tests et validation\\tps-tests-validation\\tp3\\RealEstateLoanApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E61C269A-563C-411C-ACF7-72C8B9942A88}|RealEstateLoanApp.csproj|c:\\users\\youne\\onedrive - cfai alsace\\dipl\u00F4me ing\u00E9nieur informatique - cnam\\sem4\\tests et validation\\tps-tests-validation\\tp3\\realestateloanapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E61C269A-563C-411C-ACF7-72C8B9942A88}|RealEstateLoanApp.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{368C049E-B4B7-4971-A06E-D2DF94A4D5CB}|..\\RealEstateLoanTests\\RealEstateLoanTests.csproj|c:\\users\\youne\\onedrive - cfai alsace\\dipl\u00F4me ing\u00E9nieur informatique - cnam\\sem4\\tests et validation\\tps-tests-validation\\tp3\\realestateloantests\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UnitTest1.cs",
+              "DocumentMoniker": "C:\\Users\\youne\\OneDrive - CFAI ALSACE\\Dipl\u00F4me ing\u00E9nieur informatique - CNAM\\SEM4\\Tests et validation\\tps-tests-validation\\tp3\\RealEstateLoanTests\\UnitTest1.cs",
+              "RelativeDocumentMoniker": "..\\RealEstateLoanTests\\UnitTest1.cs",
+              "ToolTip": "C:\\Users\\youne\\OneDrive - CFAI ALSACE\\Dipl\u00F4me ing\u00E9nieur informatique - CNAM\\SEM4\\Tests et validation\\tps-tests-validation\\tp3\\RealEstateLoanTests\\UnitTest1.cs",
+              "RelativeToolTip": "..\\RealEstateLoanTests\\UnitTest1.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-18T20:30:22.965Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\youne\\OneDrive - CFAI ALSACE\\Dipl\u00F4me ing\u00E9nieur informatique - CNAM\\SEM4\\Tests et validation\\tps-tests-validation\\tp3\\RealEstateLoanApp\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\youne\\OneDrive - CFAI ALSACE\\Dipl\u00F4me ing\u00E9nieur informatique - CNAM\\SEM4\\Tests et validation\\tps-tests-validation\\tp3\\RealEstateLoanApp\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-16T14:42:19.22Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

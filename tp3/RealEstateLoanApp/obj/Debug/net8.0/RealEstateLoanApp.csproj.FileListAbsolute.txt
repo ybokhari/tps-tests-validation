@@ -1,0 +1,15 @@
+C:\Users\youne\OneDrive - CFAI ALSACE\Diplôme ingénieur informatique - CNAM\SEM4\Tests et validation\tps-tests-validation\tp3\RealEstateLoanApp\bin\Debug\net8.0\RealEstateLoanApp.exe
+C:\Users\youne\OneDrive - CFAI ALSACE\Diplôme ingénieur informatique - CNAM\SEM4\Tests et validation\tps-tests-validation\tp3\RealEstateLoanApp\bin\Debug\net8.0\RealEstateLoanApp.deps.json
+C:\Users\youne\OneDrive - CFAI ALSACE\Diplôme ingénieur informatique - CNAM\SEM4\Tests et validation\tps-tests-validation\tp3\RealEstateLoanApp\bin\Debug\net8.0\RealEstateLoanApp.runtimeconfig.json
+C:\Users\youne\OneDrive - CFAI ALSACE\Diplôme ingénieur informatique - CNAM\SEM4\Tests et validation\tps-tests-validation\tp3\RealEstateLoanApp\bin\Debug\net8.0\RealEstateLoanApp.dll
+C:\Users\youne\OneDrive - CFAI ALSACE\Diplôme ingénieur informatique - CNAM\SEM4\Tests et validation\tps-tests-validation\tp3\RealEstateLoanApp\bin\Debug\net8.0\RealEstateLoanApp.pdb
+C:\Users\youne\OneDrive - CFAI ALSACE\Diplôme ingénieur informatique - CNAM\SEM4\Tests et validation\tps-tests-validation\tp3\RealEstateLoanApp\obj\Debug\net8.0\RealEstateLoanApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\youne\OneDrive - CFAI ALSACE\Diplôme ingénieur informatique - CNAM\SEM4\Tests et validation\tps-tests-validation\tp3\RealEstateLoanApp\obj\Debug\net8.0\RealEstateLoanApp.AssemblyInfoInputs.cache
+C:\Users\youne\OneDrive - CFAI ALSACE\Diplôme ingénieur informatique - CNAM\SEM4\Tests et validation\tps-tests-validation\tp3\RealEstateLoanApp\obj\Debug\net8.0\RealEstateLoanApp.AssemblyInfo.cs
+C:\Users\youne\OneDrive - CFAI ALSACE\Diplôme ingénieur informatique - CNAM\SEM4\Tests et validation\tps-tests-validation\tp3\RealEstateLoanApp\obj\Debug\net8.0\RealEstateLoanApp.csproj.CoreCompileInputs.cache
+C:\Users\youne\OneDrive - CFAI ALSACE\Diplôme ingénieur informatique - CNAM\SEM4\Tests et validation\tps-tests-validation\tp3\RealEstateLoanApp\obj\Debug\net8.0\RealEstateLoanApp.sourcelink.json
+C:\Users\youne\OneDrive - CFAI ALSACE\Diplôme ingénieur informatique - CNAM\SEM4\Tests et validation\tps-tests-validation\tp3\RealEstateLoanApp\obj\Debug\net8.0\RealEstateLoanApp.dll
+C:\Users\youne\OneDrive - CFAI ALSACE\Diplôme ingénieur informatique - CNAM\SEM4\Tests et validation\tps-tests-validation\tp3\RealEstateLoanApp\obj\Debug\net8.0\refint\RealEstateLoanApp.dll
+C:\Users\youne\OneDrive - CFAI ALSACE\Diplôme ingénieur informatique - CNAM\SEM4\Tests et validation\tps-tests-validation\tp3\RealEstateLoanApp\obj\Debug\net8.0\RealEstateLoanApp.pdb
+C:\Users\youne\OneDrive - CFAI ALSACE\Diplôme ingénieur informatique - CNAM\SEM4\Tests et validation\tps-tests-validation\tp3\RealEstateLoanApp\obj\Debug\net8.0\RealEstateLoanApp.genruntimeconfig.cache
+C:\Users\youne\OneDrive - CFAI ALSACE\Diplôme ingénieur informatique - CNAM\SEM4\Tests et validation\tps-tests-validation\tp3\RealEstateLoanApp\obj\Debug\net8.0\ref\RealEstateLoanApp.dll
