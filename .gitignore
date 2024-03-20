@@ -1,0 +1,21 @@
+# Fichiers binaires générés
+**/bin/
+**/obj/
+
+# Fichiers de projet Visual Studio
+*.suo
+*.user
+*.vspscc
+
+# Fichiers de configuration
+appsettings.json
+
+# Fichiers journaux
+*.log
+
+# Fichiers temporaires
+tmp/
+
+# Divers
+*.md
+**/.vs/

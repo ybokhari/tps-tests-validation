@@ -1,2 +1,12 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using RealEstateLoanApp;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        var calculator = new Calculator();
+
+        calculator.SetRealEstateLoanStrategy(new ConstantAmortizationStrategy());
+        calculator.CalculateRealEstateLoan(1, 2, (float)1.5);
+    }
+}
