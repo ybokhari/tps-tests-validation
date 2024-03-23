@@ -13,8 +13,8 @@ namespace RealEstateLoanApp
         int duration { get; set; }
         double nominalRate { get; set; }
 
-        double CalculateTotalCost();
-
         double CalculateMonthlyPayment();
+
+        double CalculateTotalCost();
     }
 }

@@ -19,17 +19,17 @@ namespace RealEstateLoanApp
             this.nominalRate = nominalRate;
         }
 
-        public double CalculateTotalCost()
-        {
-            return 0;
-        }
-
         public double CalculateMonthlyPayment()
         {
             double monthlyRate = nominalRate / 12;
             double numerator = loanAmount * monthlyRate;
             double denominator = (1 - Math.Pow(1 + monthlyRate, -duration));
             return Math.Round(numerator / denominator, 2);
+        }
+
+        public double CalculateTotalCost()
+        {
+            return Math.Round(CalculateMonthlyPayment() * duration, 2);
         }
     }
 }

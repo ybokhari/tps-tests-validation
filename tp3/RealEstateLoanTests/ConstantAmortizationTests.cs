@@ -18,5 +18,20 @@ namespace RealEstateLoanTests
 
             Assert.Equal(monthlyRate, result);
         }
+
+        [Theory]
+        [InlineData(50000, 108, 0.012, 52773.12)]
+        [InlineData(100000, 108, 0.015, 106964.28)]
+        [InlineData(200000, 180, 0.032, 252086.40)]
+        [InlineData(500000, 240, 0.0367, 706480.80)]
+        [InlineData(1000000, 300, 0.012, 1157985)]
+        public void CalculateTotalCost(int loanAmount, int duration, double nominalRate, double totalCost)
+        {
+            var strategy = new ConstantAmortization(loanAmount, duration, nominalRate);
+
+            double result = strategy.CalculateTotalCost();
+
+            Assert.Equal(totalCost, result);
+        }
     }
 }
