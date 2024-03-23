@@ -10,7 +10,7 @@ namespace RealEstateLoanTests
         [InlineData(200000, 180, 0.032, 1400.48)]
         [InlineData(500000, 240, 0.0367, 2943.67)]
         [InlineData(1000000, 300, 0.012, 3859.95)]
-        public void CalculateMonthlyPayment(int loanAmount, int duration, double nominalRate, double monthlyRate)
+        public void CalculateMonthlyPaymentTest(int loanAmount, int duration, double nominalRate, double monthlyRate)
         {
             var strategy = new ConstantAmortization(loanAmount, duration, nominalRate);
 
@@ -25,7 +25,7 @@ namespace RealEstateLoanTests
         [InlineData(200000, 180, 0.032, 252086.40)]
         [InlineData(500000, 240, 0.0367, 706480.80)]
         [InlineData(1000000, 300, 0.012, 1157985)]
-        public void CalculateTotalCost(int loanAmount, int duration, double nominalRate, double totalCost)
+        public void CalculateTotalCostTest(int loanAmount, int duration, double nominalRate, double totalCost)
         {
             var strategy = new ConstantAmortization(loanAmount, duration, nominalRate);
 

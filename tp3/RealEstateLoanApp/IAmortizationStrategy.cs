@@ -7,7 +7,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace RealEstateLoanApp
 {
-    internal interface IAmortizationStrategy
+    public interface IAmortizationStrategy
     {
         int loanAmount { get; set; }
         int duration { get; set; }

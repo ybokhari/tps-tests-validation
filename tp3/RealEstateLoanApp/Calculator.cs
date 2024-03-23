@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace RealEstateLoanApp
 {
-    internal class Calculator
+    public class Calculator
     {
         private IAmortizationStrategy _amortizationStrategy;
+        private IFileGenerator _fileGenerator;
 
         public Calculator()
         { }
