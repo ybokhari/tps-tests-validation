@@ -8,19 +8,27 @@ namespace RealEstateLoanApp
 {
     internal class Calculator
     {
-        private IRealEstateLoanStrategy _realEstateLoanStrategy;
+        private IAmortizationStrategy _amortizationStrategy;
 
         public Calculator()
         { }
 
-        public void SetRealEstateLoanStrategy(IRealEstateLoanStrategy realEstateLoanStrategy)
+        public void SetRealEstateLoanStrategy(IAmortizationStrategy amortizationStrategy)
         {
-            this._realEstateLoanStrategy = realEstateLoanStrategy;
+            this._amortizationStrategy = amortizationStrategy;
         }
 
         public void CalculateRealEstateLoan(int loanAmount, int duration, float nominalRate)
         {
-            this._realEstateLoanStrategy.CalculateRealEstateLoan(loanAmount, duration, nominalRate);
+            /*
+            numero_mensualite ++
+            capital_rembourse = capital_rembourse + mensualite (au depart = 0)
+            capital_restant = capital_restant - mensualite (au depart = montant du prêt)
+
+            méthodes :
+            - calculer le montant de la mensualité
+            - calculer le coût total du crédit
+             */
         }
     }
 }
