@@ -10,27 +10,26 @@ namespace RealEstateLoanApp
     {
         public int loanAmount { get; set; }
         public int duration { get; set; }
-        public float nominalRate { get; set; }
+        public double nominalRate { get; set; }
 
-        public ConstantAmortization(int loanAmount, int duration, float nominalRate)
+        public ConstantAmortization(int loanAmount, int duration, double nominalRate)
         {
             this.loanAmount = loanAmount;
             this.duration = duration;
             this.nominalRate = nominalRate;
         }
 
-        public float CalculateTotalCost()
+        public double CalculateTotalCost()
         {
             return 0;
         }
 
-        public float CalculateMonthlyPayment()
+        public double CalculateMonthlyPayment()
         {
-            if (this.loanAmount == 100000 && this.duration == 108 && this.nominalRate == (float)1.5)
-            {
-                return 990;
-            }
-            return 0;
+            double monthlyRate = nominalRate / 12;
+            double numerator = loanAmount * monthlyRate;
+            double denominator = (1 - Math.Pow(1 + monthlyRate, -duration));
+            return Math.Round(numerator / denominator, 2);
         }
     }
 }

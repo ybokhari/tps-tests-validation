@@ -11,10 +11,10 @@ namespace RealEstateLoanApp
     {
         int loanAmount { get; set; }
         int duration { get; set; }
-        float nominalRate { get; set; }
+        double nominalRate { get; set; }
 
-        float CalculateTotalCost();
+        double CalculateTotalCost();
 
-        float CalculateMonthlyPayment();
+        double CalculateMonthlyPayment();
     }
 }

@@ -4,17 +4,19 @@ namespace RealEstateLoanTests
 {
     public class ConstantAmortizationTests
     {
-        [Fact]
-        public void CalculateMonthlyPayment()
+        [Theory]
+        [InlineData(50000, 108, 0.012, 488.64)]
+        [InlineData(100000, 108, 0.015, 990.41)]
+        [InlineData(200000, 180, 0.032, 1400.48)]
+        [InlineData(500000, 240, 0.0367, 2943.67)]
+        [InlineData(1000000, 300, 0.012, 3859.95)]
+        public void CalculateMonthlyPayment(int loanAmount, int duration, double nominalRate, double monthlyRate)
         {
-            int loanAmount = 100000;
-            int duration = 108;
-            float nominalRate = (float)1.5;
             var strategy = new ConstantAmortization(loanAmount, duration, nominalRate);
 
-            float result = strategy.CalculateMonthlyPayment();
+            double result = strategy.CalculateMonthlyPayment();
 
-            Assert.Equal(990, result);
+            Assert.Equal(monthlyRate, result);
         }
     }
 }
