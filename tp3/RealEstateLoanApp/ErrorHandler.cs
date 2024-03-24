@@ -33,5 +33,14 @@ namespace RealEstateLoanApp
             }
             return true;
         }
+
+        public bool IsNominalRateValid(double nominalRate)
+        {
+            if (nominalRate < 0 || nominalRate > 1)
+            {
+                return false;
+            }
+            return true;
+        }
     }
 }

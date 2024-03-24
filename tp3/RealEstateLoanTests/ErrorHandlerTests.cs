@@ -68,18 +68,10 @@ namespace RealEstateLoanTests
         [InlineData(-50)]
         [InlineData(0)]
         [InlineData(107)]
-        public void DurationIsLessThanMinTest(int duration)
-        {
-            bool result = errorHandler.IsDurationValid(duration);
-
-            Assert.False(result);
-        }
-
-        [Theory]
         [InlineData(301)]
         [InlineData(525)]
         [InlineData(1000)]
-        public void DurationIsGreaterThanMaxTest(int duration)
+        public void DurationIsOutsideMinAndMaxTest(int duration)
         {
             bool result = errorHandler.IsDurationValid(duration);
 
@@ -93,6 +85,31 @@ namespace RealEstateLoanTests
         public void DurationIsBetweenMinAndMaxTest(int duration)
         {
             bool result = errorHandler.IsDurationValid(duration);
+
+            Assert.True(result);
+        }
+
+        [Theory]
+        [InlineData(-0.001)]
+        [InlineData(-65)]
+        [InlineData(1.001)]
+        [InlineData(8)]
+        public void NominalRateIsOutside0And1(double nominalRate)
+        {
+            bool result = errorHandler.IsNominalRateValid(nominalRate);
+
+            Assert.False(result);
+        }
+
+        [Theory]
+        [InlineData(0)]
+        [InlineData(0.001)]
+        [InlineData(0.265)]
+        [InlineData(0.999)]
+        [InlineData(1)]
+        public void NominalRateIsBetween0And1(double nominalRate)
+        {
+            bool result = errorHandler.IsNominalRateValid(nominalRate);
 
             Assert.True(result);
         }
