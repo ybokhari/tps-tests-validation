@@ -16,5 +16,14 @@ namespace RealEstateLoanApp
             }
             return true;
         }
+
+        public bool IsDurationValid(int duration)
+        {
+            if (duration < 108 || duration > 300)
+            {
+                return false;
+            }
+            return true;
+        }
     }
 }
