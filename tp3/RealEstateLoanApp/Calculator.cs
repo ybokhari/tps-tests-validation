@@ -11,25 +11,25 @@ namespace RealEstateLoanApp
         private IAmortizationStrategy _amortizationStrategy;
         private IFileGenerator _fileGenerator;
 
-        public Calculator()
-        { }
+        public Calculator(IAmortizationStrategy amortizationStrategy, IFileGenerator fileGenerator)
+        {
+            _amortizationStrategy = amortizationStrategy;
+            _fileGenerator = fileGenerator;
+        }
 
         public void SetRealEstateLoanStrategy(IAmortizationStrategy amortizationStrategy)
         {
             this._amortizationStrategy = amortizationStrategy;
         }
 
-        public void CalculateRealEstateLoan(int loanAmount, int duration, float nominalRate)
+        public void SetFileGenerator(IFileGenerator fileGenerator)
         {
-            /*
-            numero_mensualite ++
-            capital_rembourse = capital_rembourse + mensualite (au depart = 0)
-            capital_restant = capital_restant - mensualite (au depart = montant du prêt)
+            this._fileGenerator = fileGenerator;
+        }
 
-            méthodes :
-            - calculer le montant de la mensualité
-            - calculer le coût total du crédit
-             */
+        public void CalculateRealEstateLoan()
+        {
+            _fileGenerator.GenerateFile("MyRealEstateLoan.csv");
         }
     }
 }
