@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RealEstateLoanApp
 {
-    public class ErrorHandler
+    public class Validator
     {
         public bool IsDouble(string input)
         {
