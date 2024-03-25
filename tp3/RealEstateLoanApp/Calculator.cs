@@ -11,12 +11,6 @@ namespace RealEstateLoanApp
         private IAmortizationStrategy _amortizationStrategy;
         private IFileGenerator _fileGenerator;
 
-        public Calculator(IAmortizationStrategy amortizationStrategy, IFileGenerator fileGenerator)
-        {
-            _amortizationStrategy = amortizationStrategy;
-            _fileGenerator = fileGenerator;
-        }
-
         public void SetRealEstateLoanStrategy(IAmortizationStrategy amortizationStrategy)
         {
             this._amortizationStrategy = amortizationStrategy;
@@ -29,7 +23,25 @@ namespace RealEstateLoanApp
 
         public void CalculateRealEstateLoan()
         {
-            _fileGenerator.GenerateFile("MyRealEstateLoan.csv");
+            Console.WriteLine("File generation in progress...");
+
+            try
+            {
+                _fileGenerator.GenerateFile(_amortizationStrategy);
+
+                Console.Clear();
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("File generated.");
+                Console.ResetColor();
+            }
+            catch (Exception e)
+            {
+                Console.Clear();
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Error: " + e.Message);
+                Console.ResetColor();
+                return;
+            }
         }
     }
 }

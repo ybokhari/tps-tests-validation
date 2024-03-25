@@ -9,6 +9,13 @@ namespace RealEstateLoanTests
 {
     public class CsvFileGeneratorTests
     {
+        private CsvFileGenerator csvFileGenerator;
+
+        public CsvFileGeneratorTests()
+        {
+            csvFileGenerator = new CsvFileGenerator();
+        }
+
         [Theory]
         [InlineData(50000, 108, 0.012)]
         [InlineData(100000, 108, 0.015)]
@@ -18,12 +25,11 @@ namespace RealEstateLoanTests
         public void GenerateFileTest(int loanAmount, int duration, double nominalRate)
         {
             ConstantAmortization constantAmortization = new ConstantAmortization(loanAmount, duration, nominalRate);
-            CsvFileGenerator csvFileGenerator = new CsvFileGenerator(constantAmortization);
             double totalCost = constantAmortization.CalculateTotalCost();
             double monthlyPayment = constantAmortization.CalculateMonthlyPayment();
 
-            csvFileGenerator.GenerateFile("test.csv");
-            string[] lines = File.ReadAllLines("test.csv");
+            csvFileGenerator.GenerateFile(constantAmortization);
+            string[] lines = File.ReadAllLines("MyRealEstateLoan.csv");
 
             Assert.True(File.Exists("test.csv"));
             // Check the line of the total cost

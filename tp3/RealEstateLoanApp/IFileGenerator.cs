@@ -8,6 +8,6 @@ namespace RealEstateLoanApp
 {
     public interface IFileGenerator
     {
-        void GenerateFile(string filePath);
+        void GenerateFile(IAmortizationStrategy amortizationStrategy);
     }
 }

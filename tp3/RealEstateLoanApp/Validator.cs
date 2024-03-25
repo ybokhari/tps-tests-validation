@@ -8,14 +8,6 @@ namespace RealEstateLoanApp
 {
     public class Validator
     {
-        public bool IsDouble(string input)
-        {
-            // Make the method work with both dot and comma as decimal separators
-            input = input.Replace('.', ',');
-
-            return double.TryParse(input, out _);
-        }
-
         public bool IsLoanAmountValid(int loanAmount)
         {
             if (loanAmount < 50000)

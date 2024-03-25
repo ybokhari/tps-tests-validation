@@ -17,32 +17,6 @@ namespace RealEstateLoanTests
         }
 
         [Theory]
-        [InlineData("150k")]
-        [InlineData("Five")]
-        [InlineData("#&%$K6523,")]
-        [InlineData("Hello World!")]
-        public void IsDoubleFalseTest(string input)
-        {
-            bool result = validator.IsDouble(input);
-
-            Assert.False(result);
-        }
-
-        [Theory]
-        [InlineData("-456")]
-        [InlineData("0")]
-        [InlineData("1.5")]
-        [InlineData("3,25")]
-        [InlineData("225")]
-        [InlineData("150000")]
-        public void IsDoubleTrueTest(string input)
-        {
-            bool result = validator.IsDouble(input);
-
-            Assert.True(result);
-        }
-
-        [Theory]
         [InlineData(-70500)]
         [InlineData(0)]
         [InlineData(49999)]
