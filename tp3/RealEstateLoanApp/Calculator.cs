@@ -10,6 +10,14 @@ namespace RealEstateLoanApp
     {
         private IAmortizationStrategy _amortizationStrategy;
         private IFileGenerator _fileGenerator;
+        private Output _output;
+
+        public Calculator(IAmortizationStrategy amortizationStrategy, IFileGenerator fileGenerator, Output output)
+        {
+            _amortizationStrategy = amortizationStrategy;
+            _fileGenerator = fileGenerator;
+            _output = output;
+        }
 
         public void SetRealEstateLoanStrategy(IAmortizationStrategy amortizationStrategy)
         {
@@ -23,23 +31,17 @@ namespace RealEstateLoanApp
 
         public void CalculateRealEstateLoan()
         {
-            Console.WriteLine("File generation in progress...");
+            _output.simulateLoading();
 
             try
             {
                 _fileGenerator.GenerateFile(_amortizationStrategy);
 
-                Console.Clear();
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("File generated.");
-                Console.ResetColor();
+                _output.ShowSuccessMessage();
             }
             catch (Exception e)
             {
-                Console.Clear();
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Error: " + e.Message);
-                Console.ResetColor();
+                _output.ShowErrorMessage(e);
                 return;
             }
         }

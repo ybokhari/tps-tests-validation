@@ -8,9 +8,10 @@ class Program
         (int, int, double) parameters = arguments.Parse(args);
         arguments.Validate(parameters);
 
-        Calculator calculator = new Calculator();
-        calculator.SetRealEstateLoanStrategy(new ConstantAmortization(parameters.Item1, parameters.Item2, parameters.Item3));
-        calculator.SetFileGenerator(new CsvFileGenerator());
+        Calculator calculator = new Calculator(
+            new ConstantAmortization(parameters.Item1, parameters.Item2, parameters.Item3),
+            new CsvFileGenerator(),
+            new Output());
         calculator.CalculateRealEstateLoan();
     }
 }
