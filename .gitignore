@@ -17,5 +17,4 @@ appsettings.json
 tmp/
 
 # Divers
-*.md
 **/.vs/
