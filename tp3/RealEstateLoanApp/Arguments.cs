@@ -28,6 +28,9 @@ namespace RealEstateLoanApp
             // Convert nominal rate to percentage
             nominalRate = Math.Round(nominalRate / 100, 2);
 
+            // Validate the arguments
+            Validate((loanAmount, duration, nominalRate));
+
             return (loanAmount, duration, nominalRate);
         }
 

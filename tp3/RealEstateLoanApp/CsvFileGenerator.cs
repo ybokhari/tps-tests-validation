@@ -3,30 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace RealEstateLoanApp
 {
-    public class CsvFileGenerator : IFileGenerator
+    public class CsvFileGenerator(TextWriter writer)
     {
-        public void GenerateFile(IAmortizationStrategy amortizationStrategy)
+        private TextWriter Writer { get; } = writer;
+
+        public void GenerateFile()
         {
-            using (StreamWriter writer = new StreamWriter("MyRealEstateLoan.csv"))
+            double totalCost = Calculator.CalculateTotalCost();
+
+            Writer.WriteLine("Total cost of real estate loan; " + totalCost);
+            Writer.WriteLine("Monthly payment number; Capital repaid; Capital outstanding");
+
+            foreach (var (monthlyPaymentNumber, capitalRepaid, capitalOutstanding) in Calculator.CalculateAmortizationTable())
             {
-                double totalCost = Math.Round(amortizationStrategy.CalculateTotalCost(), 2);
-                double capitalRepaid = 0;
-                double capitalOutstanding = totalCost;
-
-                writer.WriteLine("Total cost of real estate loan; " + totalCost);
-                writer.WriteLine("Monthly payment number; Capital repaid; Capital outstanding");
-
-                for (int i = 1; i <= amortizationStrategy.duration; i++)
-                {
-                    double monthlyPayment = amortizationStrategy.CalculateMonthlyPayment();
-                    capitalRepaid = Math.Round(capitalRepaid + monthlyPayment, 2);
-                    capitalOutstanding = Math.Round(capitalOutstanding - monthlyPayment, 2);
-
-                    writer.WriteLine($"{i}; {capitalRepaid}; {capitalOutstanding}");
-                }
+                Writer.WriteLine($"{monthlyPaymentNumber}; {capitalRepaid}; {capitalOutstanding}");
             }
         }
     }

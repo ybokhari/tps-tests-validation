@@ -8,41 +8,42 @@ namespace RealEstateLoanApp
 {
     public class Calculator
     {
-        private IAmortizationStrategy _amortizationStrategy;
-        private IFileGenerator _fileGenerator;
-        private Output _output;
+        public static int loanAmount { get; set; }
+        public static int duration { get; set; }
+        public static double nominalRate { get; set; }
 
-        public Calculator(IAmortizationStrategy amortizationStrategy, IFileGenerator fileGenerator, Output output)
+        public Calculator(int loanAmount, int duration, double nominalRate)
         {
-            _amortizationStrategy = amortizationStrategy;
-            _fileGenerator = fileGenerator;
-            _output = output;
+            Calculator.loanAmount = loanAmount;
+            Calculator.duration = duration;
+            Calculator.nominalRate = nominalRate;
         }
 
-        public void SetRealEstateLoanStrategy(IAmortizationStrategy amortizationStrategy)
+        public static double CalculateMonthlyPayment()
         {
-            this._amortizationStrategy = amortizationStrategy;
-        }
-
-        public void SetFileGenerator(IFileGenerator fileGenerator)
-        {
-            this._fileGenerator = fileGenerator;
-        }
-
-        public void CalculateRealEstateLoan()
-        {
-            _output.simulateLoading();
-
-            try
+            double monthlyRate = nominalRate / 12;
+            if (monthlyRate == 0)
             {
-                _fileGenerator.GenerateFile(_amortizationStrategy);
-
-                _output.ShowSuccessMessage();
+                return Math.Round((double)loanAmount / duration, 2);
             }
-            catch (Exception e)
+            return Math.Round((loanAmount * monthlyRate) / (1 - Math.Pow(1 + monthlyRate, -duration)), 2);
+        }
+
+        public static double CalculateTotalCost()
+        {
+            return Math.Round((CalculateMonthlyPayment() * duration) - loanAmount, 2);
+        }
+
+        public static IEnumerable<(int monthlyPaymentNumber, double capitalRepaid, double capitalOutstanding)> CalculateAmortizationTable()
+        {
+            double monthlyPayment = CalculateMonthlyPayment();
+            double capitalOutstanding = loanAmount;
+            for (int i = 1; i <= duration; i++)
             {
-                _output.ShowErrorMessage(e);
-                return;
+                double interest = capitalOutstanding * nominalRate / 12;
+                double capitalRepaid = monthlyPayment - interest;
+                capitalOutstanding -= capitalRepaid;
+                yield return (i, capitalRepaid, capitalOutstanding);
             }
         }
     }
