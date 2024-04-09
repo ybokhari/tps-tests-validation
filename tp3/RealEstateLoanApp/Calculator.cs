@@ -12,13 +12,6 @@ namespace RealEstateLoanApp
         public static int duration { get; set; }
         public static double nominalRate { get; set; }
 
-        public Calculator(int loanAmount, int duration, double nominalRate)
-        {
-            Calculator.loanAmount = loanAmount;
-            Calculator.duration = duration;
-            Calculator.nominalRate = nominalRate;
-        }
-
         public static double CalculateMonthlyPayment()
         {
             double monthlyRate = nominalRate / 12;
@@ -40,9 +33,9 @@ namespace RealEstateLoanApp
             double capitalOutstanding = loanAmount;
             for (int i = 1; i <= duration; i++)
             {
-                double interest = capitalOutstanding * nominalRate / 12;
-                double capitalRepaid = monthlyPayment - interest;
-                capitalOutstanding -= capitalRepaid;
+                double interest = Math.Round(capitalOutstanding * nominalRate / 12, 2);
+                double capitalRepaid = i == duration ? capitalOutstanding : Math.Round(monthlyPayment - interest, 2);
+                capitalOutstanding = Math.Round(capitalOutstanding - capitalRepaid, 2);
                 yield return (i, capitalRepaid, capitalOutstanding);
             }
         }

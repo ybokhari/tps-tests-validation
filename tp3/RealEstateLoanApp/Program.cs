@@ -8,9 +8,12 @@ class Program
         {
             Arguments arguments = new Arguments();
             (int, int, double) parameters = arguments.Parse(args);
-            Calculator(parameters.Item1, parameters.Item2, parameters.Item3);
+            Calculator.loanAmount = parameters.Item1;
+            Calculator.duration = parameters.Item2;
+            Calculator.nominalRate = parameters.Item3;
             using TextWriter writer = new StreamWriter("MyRealEstateLoan.csv");
             CsvFileGenerator csvFileGenerator = new(writer);
+            csvFileGenerator.GenerateFile();
             Console.WriteLine("The file MyRealEstateLoan.csv has been created successfully.");
         }
         catch (Exception e)
