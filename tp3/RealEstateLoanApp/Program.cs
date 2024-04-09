@@ -7,7 +7,7 @@ class Program
         try
         {
             Arguments arguments = new Arguments();
-            (int, int, double) parameters = arguments.Parse(args);
+            (int, int, decimal) parameters = arguments.Parse(args);
             Calculator.loanAmount = parameters.Item1;
             Calculator.duration = parameters.Item2;
             Calculator.nominalRate = parameters.Item3;

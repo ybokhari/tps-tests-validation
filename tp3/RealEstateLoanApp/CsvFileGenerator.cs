@@ -13,7 +13,7 @@ namespace RealEstateLoanApp
 
         public void GenerateFile()
         {
-            double totalCost = Calculator.CalculateTotalCost();
+            decimal totalCost = Calculator.CalculateTotalCost();
 
             Writer.WriteLine("Total cost of real estate loan; " + totalCost);
             Writer.WriteLine("Monthly payment number; Capital repaid; Capital outstanding");

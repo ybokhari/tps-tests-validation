@@ -9,7 +9,7 @@ namespace RealEstateLoanApp
 {
     public class Arguments
     {
-        public (int, int, double) Parse(string[] args)
+        public (int, int, decimal) Parse(string[] args)
         {
             if (args.Length != 3)
             {
@@ -20,7 +20,7 @@ namespace RealEstateLoanApp
             args[2] = args[2].Replace('.', ',');
             if (!int.TryParse(args[0], out var loanAmount) ||
                 !int.TryParse(args[1], out var duration) ||
-                !double.TryParse(args[2], out var nominalRate))
+                !decimal.TryParse(args[2], out var nominalRate))
             {
                 throw new ArgumentException("The calculator accept only numbers");
             }
@@ -34,7 +34,7 @@ namespace RealEstateLoanApp
             return (loanAmount, duration, nominalRate);
         }
 
-        public void Validate((int, int, double) arguments)
+        public void Validate((int, int, decimal) arguments)
         {
             Validator validator = new Validator();
 

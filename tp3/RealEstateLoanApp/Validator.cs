@@ -26,7 +26,7 @@ namespace RealEstateLoanApp
             return true;
         }
 
-        public bool IsNominalRateValid(double nominalRate)
+        public bool IsNominalRateValid(decimal nominalRate)
         {
             if (nominalRate < 0 || nominalRate > 1)
             {
