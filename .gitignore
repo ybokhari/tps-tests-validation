@@ -16,5 +16,8 @@ appsettings.json
 # Fichiers temporaires
 tmp/
 
+# Fichier CSV
+/tp3/RealEstateLoanApp/MyRealEstateLoan.csv
+
 # Divers
 **/.vs/
