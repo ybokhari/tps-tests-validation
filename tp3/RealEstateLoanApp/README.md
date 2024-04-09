@@ -1,4 +1,3 @@
-
 # Readme - Simulateur de Crédit Immobilier en C#
 
 Ce projet est un simulateur de crédit immobilier écrit en C# qui calcule le coût total de l'emprunt (emprunt + intérêts) et les mensualités, puis génère un fichier CSV en sortie. Voici un guide pour comprendre et utiliser ce projet.
@@ -8,14 +7,14 @@ Ce projet est un simulateur de crédit immobilier écrit en C# qui calcule le co
 Pour exécuter le code, utilisez la commande suivante dans votre terminal après vous être placé dans le répertoire racine du projet :
 
 ```bash
-dotnet run [(int) loanAmount] [(int) duration] [(double) nominalRate]
+dotnet run [(decimal) loanAmount] [(int) duration] [(decimal) nominalRate]
 ```
 
 Assurez-vous de remplacer `loanAmount`, `duration` et `nominalRate` par les valeurs appropriées pour votre simulation de crédit immobilier.
 
 ## 2. Tests
 
-Ce projet suit une approche de développement piloté par les tests (TDD) avec l'utilisation de XUnit pour les tests unitaires. Chaque classe a son propre fichier de tests, par exemple `ConstantAmortizationTests.cs`. Les données de test sont fournies dynamiquement en utilisant des `InlineData` avec `Theory`. Chaque fonction de test vérifie un point spécifique du code, par exemple `DurationIsBetweenMinAndMaxTest()` qui vérifie si la durée de l'emprunt est entre 9 et 25 ans.
+Ce projet suit une approche de développement piloté par les tests (TDD) avec l'utilisation de XUnit pour les tests unitaires. Chaque classe a son propre fichier de tests, par exemple `CalculatorTests.cs`. Les données de test sont fournies dynamiquement en utilisant des `InlineData` avec `Theory`. Chaque fonction de test vérifie un point spécifique du code, par exemple `CalculateMonthlyPaymentTest()` qui vérifie si le calcul des mensualités est correct.
 
 Pour exécuter les tests, utilisez la commande suivante dans votre terminal après vous être placé dans le répertoire racine du projet :
 
@@ -27,8 +26,10 @@ dotnet test
 
 Ce projet est conçu en suivant les bonnes pratiques de codage, notamment :
 
-- **Design Pattern Strategy**: Le code utilise le design pattern Strategy pour pouvoir gérer les différents types d'amortissement (constant, linéaire, in fine...) et gérer les différentes générations de fichiers possibles (CSV, PDF, TXT...). Bien que seuls l'amortissement constant et la génération de fichiers CSV soient implémentés pour le moment, cette structure permet une évolutivité et une modularité accrues.
+- **Abstraction du FileSystem**: Le code utilise une abstraction du système de fichiers en passant par `TextWriter`, ce qui permet de rendre le code indépendant du système de fichiers réel et favorise la testabilité.
   
-- **Respect des principes SOLID**: Le code respecte les principes SOLID, notamment le principe de responsabilité unique (Single Responsibility Principle) en séparant les différentes fonctionnalités dans des classes distinctes. Par exemple, la fonction `CalculateMonthlyPayment()` est responsable uniquement du calcul du paiement mensuel. De plus, le principe d'injection de dépendances (Dependency Injection Principle) est utilisé dans différentes classes, et le principe d'ouverture/fermeture (Open/Closed Principle) est respecté grâce à l'application du design pattern Strategy.
+- **Respect des principes SOLID**: Bien que les interfaces et les stratégies aient été supprimées pour respecter le principe YAGNI (You Aren't Gonna Need It), le code continue de respecter les principes SOLID, notamment le principe de responsabilité unique (Single Responsibility Principle) en séparant les différentes fonctionnalités dans des classes distinctes. Par exemple, la classe `Calculator` est responsable uniquement du calcul du crédit. De plus, le principe d'inversion de dépendances (Dependency Inversion Principle) est toujours utilisé, ce qui favorise la flexibilité et la testabilité du code.
 
-- **Interfaces et Convention de Nommage**: Le code utilise des interfaces pour définir les contrats entre les différentes parties du système, favorisant ainsi la flexibilité et l'extensibilité du code. Enfin, une convention de nommage cohérente est suivie, utilisant Upper Camel Case pour les méthodes et Lower Camel Case pour les variables.
+- **Convention de Nommage et Utilisation de Decimal**: Une convention de nommage cohérente est suivie, utilisant Upper Camel Case pour les méthodes et Lower Camel Case pour les variables. De plus, toutes les variables de type `double` ont été remplacées par des `decimal` pour une précision accrue dans les calculs financiers.
+
+En résumé, bien que certaines fonctionnalités aient été simplifiées pour répondre aux principes de simplicité et d'évolutivité du code, le projet continue de maintenir des normes élevées de qualité et de robustesse.

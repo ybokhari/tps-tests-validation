@@ -68,7 +68,7 @@ namespace RealEstateLoanTests
         [InlineData(-65)]
         [InlineData(1.001)]
         [InlineData(8)]
-        public void NominalRateIsOutside0And1(double nominalRate)
+        public void NominalRateIsOutside0And1(decimal nominalRate)
         {
             bool result = validator.IsNominalRateValid(nominalRate);
 
@@ -81,7 +81,7 @@ namespace RealEstateLoanTests
         [InlineData(0.265)]
         [InlineData(0.999)]
         [InlineData(1)]
-        public void NominalRateIsBetween0And1(double nominalRate)
+        public void NominalRateIsBetween0And1(decimal nominalRate)
         {
             bool result = validator.IsNominalRateValid(nominalRate);
 
