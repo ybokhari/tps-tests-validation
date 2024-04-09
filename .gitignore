@@ -17,7 +17,7 @@ appsettings.json
 tmp/
 
 # Fichier CSV
-tp3/RealEstateLoanApp/MyRealEstateLoan.csv
+**/*.csv
 
 # Divers
 **/.vs/
